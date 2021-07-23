@@ -5,6 +5,14 @@ try {
 	// `who-to-greet` input defined in action metadata file
 	const nameToGreet = core.getInput('who-to-greet');
 	console.log(`Hello ${nameToGreet}!`);
+	const testFolder = './';
+	const fs = require('fs');
+
+	fs.readdir(testFolder, (err, files) => {
+		files.forEach(file => {
+			console.log(file);
+		});
+	});
 	const time = new Date().toTimeString();
 	core.setOutput('time', time);
 	// Get the JSON webhook payload for the event that triggered the workflow
